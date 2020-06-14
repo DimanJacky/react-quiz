@@ -17,6 +17,10 @@
     padding: 0;
 }
 
+.QuizList li {
+    margin-bottom: 10px;
+}
+
 .QuizList li a {
     text-decoration: none;
     color: #fff;

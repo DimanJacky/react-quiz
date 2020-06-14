@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classes from './Auth.css'
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/input/input";
+import is from 'is_js'
 
 export default class Auth extends Component {
 
@@ -47,8 +48,41 @@ export default class Auth extends Component {
         event.preventDefault()
     }
 
+    validateControl(value, validation) {
+        if (!validation) { // если не передали набор параметров, то валидировать не нужно
+            return true
+        }
+
+        let isValid = true
+
+        if (validation.required) {
+            isValid = value.trim() !== '' && isValid
+        }
+
+        if (validation.email) {
+            isValid = is.email(value) && isValid
+        }
+
+        if (validation.minLength) {
+            isValid = value.length >= validation.minLength && isValid
+        }
+
+        return isValid
+    }
+
     onChangeHandler = (event, controlName) => {
-        console.log(`${controlName}: `, event.target.value)
+        const formControls = { ...this.state.formControls }
+        const control = { ...formControls[controlName] }
+
+        control.value = event.target.value
+        control.touched = true
+        control.valid = this.validateControl(control.value, control.validation)
+
+        formControls[controlName] = control
+
+        this.setState({
+            formControls
+        })
     }
 
     renderInputs() {

@@ -15,11 +15,11 @@ class Layout extends Component {
     })
   }
 
-    menuCloseHandler = () => {
-        this.setState({
-            menu: false
-        })
-    }
+  menuCloseHandler = () => {
+    this.setState({
+      menu: false
+    })
+  }
 
   render() {
     return (

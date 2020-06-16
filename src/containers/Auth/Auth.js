@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import classes from './Auth.css'
 import Button from '../../components/UI/Button/Button'
-import Input from "../../components/UI/Input/Input";
+import Input from '../../components/UI/Input/Input'
 import is from 'is_js'
 import axios from 'axios'
 
@@ -44,7 +44,7 @@ export default class Auth extends Component {
       returnSecureToken: true
     }
     try {
-      const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAeSxMKyby3gzRLxHrj97pHnvJxU-82ylk', authData)
+      const response = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAeSxMKyby3gzRLxHrj97pHnvJxU-82ylk', authData)
 
       console.log(response.data)
     } catch (e) {
@@ -59,13 +59,12 @@ export default class Auth extends Component {
       returnSecureToken: true
     }
     try {
-      const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAeSxMKyby3gzRLxHrj97pHnvJxU-82ylk', authData)
+      const response = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAeSxMKyby3gzRLxHrj97pHnvJxU-82ylk', authData)
 
       console.log(response.data)
     } catch (e) {
       console.log(e)
     }
-
   }
 
   submitHandler = event => {

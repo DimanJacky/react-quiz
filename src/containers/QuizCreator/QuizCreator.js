@@ -5,7 +5,7 @@ import {createCotnrol, validate, validateForm} from '../../form/formFramework'
 import Input from "../../components/UI/Input/Input";
 import Select from "../../components/UI/Select/Select";
 import Auxillary from "../../hoc/Auxillary/Auxillary";
-import axios from 'axios'
+import axios from '../../axios/axios-quiz'
 
 function createOptionControl(number) {
     return createCotnrol({
@@ -75,7 +75,7 @@ export default class QuizCreator extends Component {
         event.preventDefault()
 
             try {
-                await axios.post('https://react-quiz-339fc.firebaseio.com/quizes.json', this.state.quiz)
+                await axios.post('/quizes.json', this.state.quiz)
 
                 this.setState({
                     quiz: [],

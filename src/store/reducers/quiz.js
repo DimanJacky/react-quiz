@@ -33,7 +33,7 @@ export default function quizReducer(state = initialState, action) {
             }
         case FETCH_QUIZ_SUCCESS:
             return {
-                ...state, loading: false, quizes: action.quiz
+                ...state, loading: false, quiz: action.quiz
             }
         case QUIZ_SET_STATE:
             return {

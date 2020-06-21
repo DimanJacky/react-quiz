@@ -17,5 +17,6 @@ export function resetQuizCreation() {
 export function finishCreateQuiz() {
     return async (dispatch, getState) => {
         await axios.post('/quizes.json', getState().create.quiz)
+        dispatch(resetQuizCreation())
     }
 }

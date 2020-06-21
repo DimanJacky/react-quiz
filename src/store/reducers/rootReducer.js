@@ -4,5 +4,5 @@ import createReducer from "./create";
 
 export default combineReducers({
     quiz: quizReducer,
-    create: createReducer()
+    create: createReducer
 })
